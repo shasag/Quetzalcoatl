@@ -1,0 +1,159 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+<div class="container" style="width:600px;margin: 0 auto;font-family: arial; font-size:large;">
+    @*<div class="float-right">
+            <nav>
+                <ul id="menu">
+                    <li>@Html.ActionLink("View Users", "DisplayCustomers", "Customer", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Register Me", "Register", "Home", new { area = "" }, null)</li>
+                </ul>
+            </nav>
+        </div>*@
+    <h2>Please Enter below</h2>
+
+    <div class="ui form segment" ng-controller="LoginController">
+
+        <div class="ui inverted dimmer" ng-class="{true: 'active', false: 'disabled'}[loading]">
+            <div class="ui text loader" id="Loading">Please wait while Logging you in...</div>
+        </div>
+
+
+        <div class="field">
+            <div class="field">
+                <label for="Login">Login Id</label>
+                <div class="ui icon input">
+                    <input id="Login" placeholder="Login Id" type="text" ng-model="user.login">
+                    <i class="asterisk red icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="Password">Password</label>
+            <div class="ui icon input">
+                <input id="Password" placeholder="Password" type="password" ng-model="user.password">
+                <i class="asterisk red icon"></i>
+            </div>
+        </div>
+
+        <button class="ui blue button" ng-click="login()">Submit</button>
+
+        <div class="ui error message"></div>
+    </div>
+
+</div>
+
+<script src="~/content/jquery-1.10.2.min.js"></script>
+<script src="~/content/semantic/javascript/semantic.min.js"></script>
+
+<script src="~/content/angular.min.js"></script>
+
+<script>
+
+        (function ($) {
+            $('.ui.form').form({
+                givenName: {
+                    identifier: 'Login',
+                    rules: [{
+                        type: 'empty',
+                        prompt: 'Please enter your login id'
+                    }]
+                },
+                password: {
+                    identifier: 'Password',
+                    rules: [{
+                        type: 'empty',
+                        prompt: 'Please enter a password'
+                    }, {
+                        type: 'length[6]',
+                        prompt: 'Password needs to be atleast 6 characters long'
+                    }]
+                }
+            }, {
+                on: 'blur'
+            });
+        }(jQuery));
+
+        // This is the Angular Controller function call used in ng-Controller
+        function LoginController($scope, $element) {
+            var loginForm = $($element);
+
+            $scope.user = {};
+            $scope.loading = false;
+
+            $scope.isInvalid = function () {
+                return !loginForm.form('validate form');
+            };
+
+            $scope.login = function () {
+                if (this.isInvalid()) {
+                    return;
+                }
+
+                this.loading = true;
+                // To call the Web API throgh ajax Get() to send the Angular Model (ng-Model)
+                var request = $.ajax({
+                    url: '/api/Registration',
+                    type: "GET",
+                    data: {
+                        name: $scope.user.login,
+                        password: $scope.user.password
+                    },
+                    //  contentType: 'application/xml; charset=utf-8',
+                    // dataType: "xml
+
+                });
+
+
+                request.done(function (msg) {
+
+                    $scope.loading = false;
+                    alert(msg);
+                    if (msg.trim() == "Success") {
+                        alert('hi');
+                        var url = "/Admin/RegisteredUsers";
+                        window.location.href = url;
+                        //$.get("/Admin/RegisteredUsers", function (data) { });
+                        //$.ajax({
+                        //    // edit to add steve's suggestion.
+                        //    //url: "/ControllerName/ActionName",
+                        //    url: '<%= Url.Action("RegisteredUsers", "Admin") %>',
+                        //    type: 'GET',
+                        //    success: function (data) {
+                        //        // your data could be a View or Json or what ever you returned in your action method 
+                        //        // parse your data here
+                        //        alert(data);
+                        //    }
+                        //});
+
+                    }
+                    else {
+                        $("#Loading").text("Please try again");
+                        jAlert('Please try again');
+                    }
+                    //this.loading = true;
+
+                    console.debug("saved comment", msg);
+                });
+
+                request.fail(function (jqXHR, textStatus) {
+                    //      alert("Request failed: " + textStatus);
+                    $("#Loading").text("Please try again");
+                    jAlert('Please try again');
+
+                });
+                // this.loading = false;
+                /*   $http(req).success(function (data,status) {
+                       this.loading = false;
+                       alert(data + status);
+                   }).error(function (data, status) {
+                       alert(status);
+                   });*/
+
+                console.log(this.user);
+            };
+
+        }
+
+        </script>
