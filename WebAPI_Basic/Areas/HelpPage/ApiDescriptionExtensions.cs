@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace WebAPI_Basic.Areas.HelpPage
+namespace QuetzalCoatlWeb.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

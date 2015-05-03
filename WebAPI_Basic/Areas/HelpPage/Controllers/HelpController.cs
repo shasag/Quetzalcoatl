@@ -1,9 +1,9 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using WebAPI_Basic.Areas.HelpPage.Models;
+using QuetzalCoatlWeb.Areas.HelpPage.Models;
 
-namespace WebAPI_Basic.Areas.HelpPage.Controllers
+namespace QuetzalCoatlWeb.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

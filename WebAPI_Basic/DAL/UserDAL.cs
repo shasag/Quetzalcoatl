@@ -5,9 +5,9 @@ using System.Web;
 using System.Data;
 using System.Configuration;
 using MySql.Data.MySqlClient;
-using WebAPI_Basic.Models;
+using QuetzalCoatlWeb.Models;
 
-namespace WebAPI_Basic.DAL
+namespace QuetzalCoatlWeb.DAL
 {
     public class UserDAL
     {

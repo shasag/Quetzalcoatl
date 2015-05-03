@@ -7,9 +7,9 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Description;
-using WebAPI_Basic.Areas.HelpPage.Models;
+using QuetzalCoatlWeb.Areas.HelpPage.Models;
 
-namespace WebAPI_Basic.Areas.HelpPage
+namespace QuetzalCoatlWeb.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

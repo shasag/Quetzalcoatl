@@ -425,12 +425,12 @@ label.checkbox {
 }
 
 input, textarea {
-    border: 1px solid #e2e2e2;
+    /*border: 1px solid #e2e2e2;*/
     background: #fff;
     color: #333;
-    font-size: 1.2em;
-    margin: 5px 0 6px 0;
-    padding: 5px;
+    /*font-size: 1.2em;*/
+    padding: 0px;
+    /*margin: 5px 0 6px 0;*/
     width: 300px;
 }
 
@@ -762,4 +762,46 @@ tr.pager td {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    font-size: 14px;
 }
+
+
+.navbar-vertical-collapse {
+    height: auto;
+    border-top: 0;
+    box-shadow: none;
+    max-height: none;
+    padding-left:0;
+    padding-right:0;
+    }
+    .navbar-vertical-collapse.collapse {
+    display: block !important;
+    width: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+    }
+    .navbar-vertical-collapse.in {
+    overflow-x: visible;
+    }
+
+    .navbar-vertical
+    {
+    max-width:250px;
+    margin-right: 0;
+    margin-left: 0;
+    background-color: #7AC0DA;
+    }
+
+    .navbar-vertical-nav,
+    .navbar-vertical-nav > li,
+    .navbar-vertical-left,
+    .navbar-vertical-right,
+    .navbar-vertical-header
+    {float:none !important;}
+
+    .navbar-vertical-right .dropdown-menu {left:0;right:auto;}
+    .navbar-vertical-collapse .navbar-vertical-nav.navbar-vertical-right:last-child {
+    margin-right: 0;
+    }
+
+   

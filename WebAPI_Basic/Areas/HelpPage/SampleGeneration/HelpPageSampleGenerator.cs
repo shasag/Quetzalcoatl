@@ -13,7 +13,7 @@ using System.Web.Http.Description;
 using System.Xml.Linq;
 using Newtonsoft.Json;
 
-namespace WebAPI_Basic.Areas.HelpPage
+namespace QuetzalCoatlWeb.Areas.HelpPage
 {
     /// <summary>
     /// This class will generate the samples for the help page.

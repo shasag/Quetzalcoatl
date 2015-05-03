@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Login";
 }
-<div class="container" style="width:600px;margin: 0 auto;font-family: arial; font-size:large;">
+<div class="container" style="width:600px;">
     @*<div class="float-right">
             <nav>
                 <ul id="menu">
@@ -10,7 +10,7 @@
                 </ul>
             </nav>
         </div>*@
-    <h2>Please Enter below</h2>
+    <h2>Login Details</h2>
 
     <div class="ui form segment" ng-controller="LoginController">
 
@@ -109,9 +109,8 @@
                 request.done(function (msg) {
 
                     $scope.loading = false;
-                    alert(msg);
+                    //alert(msg);
                     if (msg.trim() == "Success") {
-                        alert('hi');
                         var url = "/Admin/RegisteredUsers";
                         window.location.href = url;
                         //$.get("/Admin/RegisteredUsers", function (data) { });

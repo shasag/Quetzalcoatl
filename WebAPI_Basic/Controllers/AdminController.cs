@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebAPI_Basic.DAL;
+using QuetzalCoatlWeb.DAL;
 
-namespace WebAPI_Basic.Controllers
+namespace QuetzalCoatlWeb.Controllers
 {
     public class AdminController : Controller
     {

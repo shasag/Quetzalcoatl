@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace WebAPI_Basic.Areas.HelpPage
+namespace QuetzalCoatlWeb.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

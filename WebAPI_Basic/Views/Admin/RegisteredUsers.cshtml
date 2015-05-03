@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "RegisteredUsers";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <script src="~/Scripts/jquery-1.8.2.js"></script>
@@ -68,12 +69,12 @@
              ))
 
     @{
-        WebAPI_Basic.Models.User user = new WebAPI_Basic.Models.User();
+        QuetzalCoatlWeb.Models.User user = new QuetzalCoatlWeb.Models.User();
     }
 
     @if (grid.HasSelection)
     {
-        user = (WebAPI_Basic.Models.User)grid.Rows[grid.SelectedIndex].Value;
+        user = (QuetzalCoatlWeb.Models.User)grid.Rows[grid.SelectedIndex].Value;
         <div>
             <b>Customer Id :-</b> @user.Uid<br />
             <b>Customer Name:- </b>  @user.FName @user.LName<br />

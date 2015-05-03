@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebAPI_Basic.Models
+namespace QuetzalCoatlWeb.Models
 {
     public class User
     {
