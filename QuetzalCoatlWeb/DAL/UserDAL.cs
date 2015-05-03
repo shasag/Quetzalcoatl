@@ -30,7 +30,7 @@ namespace QuetzalCoatlWeb.DAL
         public static List<User> GetUserData()
         {
             List<User> customer = new List<User>();
-            MySqlCommand cmd = new MySqlCommand("select * from user order by UserId desc", con);
+            MySqlCommand cmd = new MySqlCommand("select * from user order by UserId", con);
             con.Open();
             MySqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -40,6 +40,25 @@ namespace QuetzalCoatlWeb.DAL
             con.Close();
             return customer;
 
+        }
+
+        internal static bool ValidateUserInfo(string name, string password, out string userId)
+        {
+            userId = String.Empty;
+            MySqlCommand cmd = new MySqlCommand("select * from user where UserLogin = '" + name + "' and Password = '" + password + "'", con);
+            int rowCount = 0;
+            con.Open();
+            MySqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                userId = dr[0].ToString();
+                rowCount++;
+            }
+            con.Close();
+            if (rowCount > 0)
+                return true;
+            else
+                return false;
         }
     }
 }

@@ -97,7 +97,7 @@
                     url: '/api/Registration',
                     type: "GET",
                     data: {
-                        name: $scope.user.login,
+                        login: $scope.user.login,
                         password: $scope.user.password
                     },
                     //  contentType: 'application/xml; charset=utf-8',
@@ -128,7 +128,7 @@
 
                     }
                     else {
-                        $("#Loading").text("Please try again");
+                        $("#Loading").html("<a href='/Account/Login'>Click here</a> to try again");
                         jAlert('Please try again');
                     }
                     //this.loading = true;
